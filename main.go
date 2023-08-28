@@ -5,7 +5,8 @@ import (
 	_ "examples.com/packages/functions"
 	_"examples.com/packages/arrays"
 	_"examples.com/packages/maps"
-	"examples.com/packages/structs"
+	_"examples.com/packages/structs"
+	"examples.com/packages/interfaces"
 )
 
 // func main() {
@@ -30,19 +31,38 @@ import (
 // }
 
 // Structs
+// func main(){
+// 	//Anonymous Slice
+// 	// calling := structs.Anonymous{
+// 	// 	Float: 32,
+// 	// 	Int : 32,
+// 	// 	String : "Tolu",
+// 	// }
+// 	// fmt.Println(calling.Float, calling.Int, calling.String)
+
+// 	//Employee Salary
+// 	Emp := new(structs.Employee)
+// 	Emp.Salary = 100000
+// 	Emp.GiveRaise(0.98)
+// 	fmt.Println(Emp.Salary)
+
+// }
+
+//INTERFACE
 func main(){
-	//Anonymous Slice
-	// calling := structs.Anonymous{
-	// 	Float: 32,
-	// 	Int : 32,
-	// 	String : "Tolu",
-	// }
-	// fmt.Println(calling.Float, calling.Int, calling.String)
+	var areaInt interfaces.AreaInterface
+	var PerInt interfaces.PeriInterface
 
-	//Employee Salary
-	Emp := new(structs.Employee)
-	Emp.Salary = 100000
-	Emp.GiveRaise(0.98)
-	fmt.Println(Emp.Salary)
+	sq1 := new(interfaces.Square)
+	sq1.Side = 5
 
+	tr1 :=new(interfaces.Triangle)
+	tr1.Base = 4
+	tr1.Height = 5
+
+	areaInt = sq1
+	fmt.Printf("The area is %v ", areaInt.Area())
+
+	PerInt = sq1
+	fmt.Printf("The Perimeter is %v. ", PerInt.Perimeter())
 }
